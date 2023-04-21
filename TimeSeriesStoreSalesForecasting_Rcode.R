@@ -57,7 +57,7 @@ head(train)
 # Sales gives the total sales for a product family at a particular store at a given date. 
 # Fractional values are possible since products can be sold in fractional units (1.5 kg of cheese, for instance, as opposed to 1 bag of chips).
 # That's why, transactions will be one of the relevant features in the model. 
-# In the following sections, we will generate new features by using transactions.
+# Generate new features by using transactions.
 
 temp <- train %>%
   group_by(date, store_nbr) %>%
@@ -102,7 +102,7 @@ p <- plot_ly(transactions, x = ~year_month, y = ~transactions, color = ~format(d
 # show plot
 p
 
-# Let's take a look at transactions by using monthly average sales!
+# Let's take a look at transactions by using monthly average sales
 # We've just learned a pattern what increases sales. It was the end of the year. 
 # We can see that transactions increase in spring and decrease after spring.
 
@@ -173,7 +173,7 @@ oil_plot <- oil_resampled %>%
 # Display plot
 print(oil_plot)
 
-# I just said, "Ecuador is a oil-dependent country" but is it true? Can we really see that from the data by looking at?
+# "Ecuador is a oil-dependent country" but is it true? Can we really see that from the data by looking at?
 # First of all, let's look at the correlations for sales and transactions. The correlation values are not strong but the sign of sales is negative. 
 # Maybe, we can catch a clue. Logically, if daily oil price is high, we expect that the Ecuador's economy is bad and it means the price of product increases and sales decreases. 
 # There is a negative relationship here.
@@ -270,7 +270,7 @@ cat("Shape of the train data frame after removing rows:", dim(train), "\n")
 
 
 # Some stores don't sell some product families. 
-# In the following code, you can see which products aren't sold in which stores. 
+# In the following code, can see which products aren't sold in which stores. 
 # It isn't difficult to forecast them next 15 days. Their forecasts must be 0 next 15 days.
 # I will remove them from the data and create a new data frame for product families which never sell. 
 # Then, when we are at submission part, I will combine that data frame with our predictions.
